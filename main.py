@@ -6,7 +6,9 @@ from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from shot import Shot
 
-
+def spawn(shots):
+    pass
+    
 
 def main():
     print("Starting Asteroids!")
@@ -39,18 +41,24 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+
         updatable.update(dt)
 
         for asteroid in asteroids:
             if asteroid.collision(player):
-                print("")
-                print("=========================")
-                print("")
-                print("Game Over!")
-                print("")
-                print("=========================")
-                print("")
-                sys.exit()
+                if lives > 0:
+                    player.kill()
+                    lives -= 1
+                    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, shots)
+                else:
+                    print("")
+                    print("=========================")
+                    print("")
+                    print("Game Over!")
+                    print("")
+                    print("=========================")
+                    print("")
+                    sys.exit()
 
         for shot in shots:
             for asteroid in asteroids:
