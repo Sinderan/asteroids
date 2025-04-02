@@ -52,8 +52,9 @@ def main():
         for shot in shots:
             for asteroid in asteroids:
                 if shot.collision(asteroid):
-                    asteroid.kill()
                     shot.kill()
+                    new_asteroids = asteroid.split()
+                    asteroids.add(new_asteroids)
     
         screen.fill("black")
         for obj in drawable:
