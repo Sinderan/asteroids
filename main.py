@@ -55,6 +55,7 @@ def main():
                     print("=========================")
                     print("")
                     print("Game Over!")
+                    print(f"Final Score: {score}")
                     print("")
                     print("=========================")
                     print("")
@@ -67,7 +68,6 @@ def main():
                     new_asteroids = asteroid.split()
                     asteroids.add(new_asteroids)
                     score += 1
-                    print(f"Score: {score}")
     
         screen.fill("black")
         for obj in drawable:
