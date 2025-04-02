@@ -31,6 +31,9 @@ def main():
     Shot.containers = (shots, updatable, drawable)
     
     dt = 0
+
+    score = 0
+    lives = 3
     
     while True:
         for event in pygame.event.get():
@@ -55,6 +58,8 @@ def main():
                     shot.kill()
                     new_asteroids = asteroid.split()
                     asteroids.add(new_asteroids)
+                    score += 1
+                    print(f"Score: {score}")
     
         screen.fill("black")
         for obj in drawable:
